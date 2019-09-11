@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h4>{{ msg }}</h4>
+        <!-- v-bind 只能实现数据的单向绑定 ，由 M 自动绑定到 V，无法实现双向数据绑定-->
+        <input type="text" :value="msg"><br>
+        <!-- v-model 可以实现表单元素和 Model 中的数据双向数据绑定 -->
+        <!--  v-model 只能运用在表单元素-->
+        <input type="text" v-model:value="msg">
+    </div>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+                msg:'this is an message'
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

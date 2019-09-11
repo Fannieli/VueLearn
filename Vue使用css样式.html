@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .thin{
+            font-weight: 200;
+        }
+        .italic{
+            font-style: italic;
+        }
+        .active{
+            letter-spacing: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--1.直接传递一个数组形式 ，注意：class需要使用v-bind 做数据绑定-->
+        <h1 :class="['red','thin']">h1文字标题</h1>
+         <!-- 可以在数组中使用三元表达式 -->
+         <h1 :class="['red','thin',flag?'active':'']">h1文字标题</h1>
+         <!-- 在数组中使用对象代替三元表达式，提高代码可读性 -->
+         <h1 :class="['red','thin',{'active':flag}]">h1文字标题</h1>
+        <!-- 2.直接使用，对象的属性名为类名，属性值为标识符 -->
+        <h1 :class="{red:true,thin:true,italic:true,active:true}">h1文字标题</h1>
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+               flag:true 
+                
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

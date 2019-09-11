@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+    <div id="app">
+        <!-- v-on：用于绑定事件 
+            语法糖：@-->
+        <input type="button" value="按钮" :title="mytitle" v-on:click="alert('hello!')">
+        <input type="button" value="按钮" @click="show">
+        
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                mytitle:'自定义提示信息'
+            },
+            methods:{
+                show:function(){
+                    alert('hello!');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
