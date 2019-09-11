@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>{{ msg }}
+        <h4 v-text="msg"></h4>
+        <!-- v-text没有闪烁问题
+            v-text会覆盖元素中原本内容，插值表达式只会替换自己的占位符 ;
+            v-text 和 插值表达式都不会渲染data数据，只以字符串形式表现；
+            v-html可以渲染data中的元素标签；
+        
+        -->
+            <div v-html="msg2"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script>
+        var app  = new Vue({
+            el:'#app',
+            data:{
+                msg:'123',
+                msg2:'<h4>123</h4>'
+            }
+        })
+    </script>
+</body>
+</html>
