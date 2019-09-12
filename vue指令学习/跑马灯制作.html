@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="start" @click="start">
+        <input type="button" value="end" @click="end">
+        <h4>{{ msg }}</h4>
+    </div>
+    <script>
+        //在app实例中调用data上的数据，或者methods中的方法，必须通
+        // 过this.数据属性名
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: '跑马灯效果！',
+                intervalId: null //定时器Id
+            },
+            methods: {
+                start() {
+                    if (this.intervalId != null) return;
+                    // 定时器
+                    this.intervalId = setInterval(() => {
+                        var msgstart = this.msg.substring(0, 1);
+                        var msgend = this.msg.substring(1);
+                        this.msg = msgend + msgstart;
+                    }, 400); // 460792129yy
+                },
+                end() {
+                    clearInterval(this.intervalId);
+                    this.intervalId = null;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
